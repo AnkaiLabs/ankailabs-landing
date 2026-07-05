@@ -95,10 +95,10 @@ export default function PrivacidadPage() {
             rectificar, cancelar u oponerte al tratamiento de tus datos. Para
             ejercerlos, escríbenos a{" "}
             <a
-              href="mailto:contacto@ankailabs.com"
+              href="mailto:hola@ankailabs.cl"
               className="text-verde-bright hover:underline"
             >
-              contacto@ankailabs.com
+              hola@ankailabs.cl
             </a>{" "}
             indicando tu nombre completo y la solicitud específica. Responderemos
             dentro de los plazos legales.
@@ -115,10 +115,10 @@ export default function PrivacidadPage() {
           <p>
             Para cualquier consulta sobre privacidad, escríbenos a{" "}
             <a
-              href="mailto:contacto@ankailabs.com"
+              href="mailto:hola@ankailabs.cl"
               className="text-verde-bright hover:underline"
             >
-              contacto@ankailabs.com
+              hola@ankailabs.cl
             </a>
             .
           </p>
