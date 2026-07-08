@@ -15,14 +15,16 @@ export function LeadForm() {
     cargo: "",
     empresa: "",
     sector: "",
+    tamano: "",
     correo: "",
     whatsapp: "",
     proceso: "",
   });
 
   function set(field: keyof typeof values) {
-    return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setValues((v) => ({ ...v, [field]: e.target.value }));
+    return (
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    ) => setValues((v) => ({ ...v, [field]: e.target.value }));
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -95,10 +97,11 @@ export function LeadForm() {
 
             <div className="space-y-1.5">
               <label htmlFor="cargo" className="text-sm text-text-secondary">
-                Cargo <span className="text-white/25">opcional</span>
+                Cargo <span className="text-white/40">*</span>
               </label>
               <Input
                 id="cargo"
+                required
                 placeholder="Ej: Gerente, Dueño"
                 value={values.cargo}
                 onChange={set("cargo")}
@@ -123,16 +126,38 @@ export function LeadForm() {
 
             <div className="space-y-1.5">
               <label htmlFor="sector" className="text-sm text-text-secondary">
-                Rubro <span className="text-white/25">opcional</span>
+                Rubro <span className="text-white/40">*</span>
               </label>
               <Input
                 id="sector"
-                placeholder="Ej: Retail, Clínica, Legal"
+                required
+                placeholder="Ej: Restaurante, clínica, retail"
                 value={values.sector}
                 onChange={set("sector")}
                 className="h-11 border-white/15 bg-white/[0.02]"
               />
             </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <label htmlFor="tamano" className="text-sm text-text-secondary">
+              Tamaño del equipo <span className="text-white/40">*</span>
+            </label>
+            <select
+              id="tamano"
+              required
+              value={values.tamano}
+              onChange={set("tamano")}
+              className="h-11 w-full rounded-md border border-white/15 bg-white/[0.02] px-3 text-sm text-white outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+            >
+              <option value="" disabled className="bg-background">
+                Selecciona un rango
+              </option>
+              <option value="1-5" className="bg-background">1 a 5 personas</option>
+              <option value="5-15" className="bg-background">5 a 15 personas</option>
+              <option value="15-50" className="bg-background">15 a 50 personas</option>
+              <option value="50+" className="bg-background">Más de 50 personas</option>
+            </select>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
