@@ -81,7 +81,7 @@ export function Vuelve() {
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <span className="rounded-full border border-verde/30 bg-verde/10 px-4 py-1.5 text-sm font-semibold text-verde-bright">
-              Desde $29 USD/mes
+              Desde $29.000/mes CLP
             </span>
             <Link
               href="#contacto"
