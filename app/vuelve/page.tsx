@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { PageHeader } from "@/components/shared/page-header";
 import { SectionContainer } from "@/components/shared/section-container";
 import { buttonVariants } from "@/components/ui/button";
+import { VUELVE_WHATSAPP_URL } from "@/lib/content/vuelve";
 import { cn } from "@/lib/utils";
 
 const PAGE_TITLE = "VUELVE";
@@ -38,8 +38,8 @@ const CLIENT_STEPS = [
     desc: "En la mesa, el mostrador o la caja. El cliente no descarga nada.",
   },
   {
-    title: "Tarjeta en el Wallet",
-    desc: "Apple Wallet o Google Wallet. En 30 segundos, sin registro ni formulario.",
+    title: "Tarjeta en el Wallet, con puntos de regalo",
+    desc: "Apple Wallet o Google Wallet en 30 segundos, sin registro ni formulario — el negocio puede regalar puntos de bienvenida, así ya hay un avance real hacia la primera recompensa.",
   },
   {
     title: "Gana puntos",
@@ -48,6 +48,21 @@ const CLIENT_STEPS = [
   {
     title: "WhatsApp lo trae de vuelta",
     desc: "Le avisa cuando acumuló puntos o tiene una recompensa esperándolo.",
+  },
+];
+
+const CAJERO_TRACKS = [
+  {
+    label: "Escaneo con la cámara",
+    desc: "El cajero apunta el celular al QR de la tarjeta del cliente y el sistema lo encuentra al instante — el mismo gesto de un segundo, incluso en hora punta.",
+  },
+  {
+    label: "Acceso directo, sin apps",
+    desc: "Un ícono en la pantalla de inicio del celular abre derecho en la cámara de acreditar — se siente como una app, sin bajar nada de ninguna tienda.",
+  },
+  {
+    label: "Cada cajero, su propio acceso",
+    desc: "Cada persona del equipo entra con su propio PIN — nadie comparte cuenta, y cada acreditación queda registrada a nombre de quien la hizo.",
   },
 ];
 
@@ -63,6 +78,10 @@ const DASHBOARD_TRACKS = [
   {
     label: "Efectividad del programa",
     desc: "Tasa de retorno, frecuencia de visitas y qué recompensas generan más vueltas.",
+  },
+  {
+    label: "Multi-sucursal real",
+    desc: "Un cliente que se inscribe en un local acumula y canjea en cualquiera de tus sucursales — con geolocalización nativa que le avisa cuando está cerca, sin apps de rastreo ni permisos extra.",
   },
 ];
 
@@ -164,12 +183,14 @@ export default function VuelvePage() {
             <span className="rounded-full border border-verde/30 bg-verde/10 px-4 py-1.5 text-sm font-semibold text-verde-bright">
               Desde $29.000/mes CLP
             </span>
-            <Link
-              href="/#contacto"
+            <a
+              href={VUELVE_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={buttonVariants({ variant: "default", size: "lg" })}
             >
               Quiero conocer VUELVE
-            </Link>
+            </a>
           </div>
         </SectionContainer>
       </section>
@@ -273,7 +294,11 @@ export default function VuelvePage() {
                       2
                     </span>
                     <p className="text-sm leading-snug text-white/90">
-                      La tarjeta aparece en Apple o Google Wallet en 30 segundos.
+                      La tarjeta aparece en Apple o Google Wallet en 30 segundos —
+                      <span className="text-white/55">
+                        {" "}
+                        a veces con puntos de regalo ya cargados.
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -370,6 +395,33 @@ export default function VuelvePage() {
         </SectionContainer>
       </section>
 
+      {/* ── Lo que vive el cajero ── */}
+      <section className="border-t border-white/5 py-16 md:py-20">
+        <SectionContainer>
+          <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary">
+            Lo que vive el cajero
+          </p>
+          <h2 className="mt-3 text-2xl font-extrabold text-white md:text-3xl">
+            Acreditar puntos toma el mismo gesto de siempre — hasta en hora
+            punta.
+          </h2>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {CAJERO_TRACKS.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-xl border border-white/10 bg-white/[0.02] p-5"
+              >
+                <p className="text-sm font-semibold text-white">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </SectionContainer>
+      </section>
+
       {/* ── Vista del dueño ── */}
       <section className="border-t border-white/5 py-16 md:py-20">
         <SectionContainer>
@@ -381,7 +433,7 @@ export default function VuelvePage() {
             recompensas funcionan.
           </h2>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {DASHBOARD_TRACKS.map((item) => (
               <div
                 key={item.label}
@@ -507,15 +559,17 @@ export default function VuelvePage() {
               Es una condición de lanzamiento: la mantenemos mientras estamos
               afinando el onboarding con los primeros restaurantes.
             </p>
-            <Link
-              href="/#contacto"
+            <a
+              href={VUELVE_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(
                 buttonVariants({ variant: "default", size: "lg" }),
                 "mt-6 inline-flex"
               )}
             >
               Quiero el Pack de Lanzamiento
-            </Link>
+            </a>
           </div>
         </SectionContainer>
       </section>
@@ -567,12 +621,14 @@ export default function VuelvePage() {
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-              <Link
-                href="/#contacto"
+              <a
+                href={VUELVE_WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: "default", size: "lg" }))}
               >
-                Agendar reunión gratuita
-              </Link>
+                Hablar por WhatsApp
+              </a>
               <a
                 href="https://vuelve.ankailabs.cl"
                 target="_blank"
@@ -589,7 +645,12 @@ export default function VuelvePage() {
         </SectionContainer>
       </section>
 
-      <CtaBanner />
+      <CtaBanner
+        text="¿Tienes un restaurante y hoy no sabes quién vuelve? Escríbenos y lo vemos en 10 minutos."
+        href={VUELVE_WHATSAPP_URL}
+        label="Hablar por WhatsApp"
+        external
+      />
     </>
   );
 }
