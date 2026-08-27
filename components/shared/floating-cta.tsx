@@ -42,7 +42,7 @@ export function FloatingCta() {
           className="fixed bottom-6 right-6 z-40"
         >
           <Link
-            href="#contacto"
+            href="/#contacto"
             className={cn(
               buttonVariants({ variant: "default", size: "lg" }),
               "shadow-lg shadow-black/40"

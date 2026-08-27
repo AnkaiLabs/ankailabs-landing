@@ -12,7 +12,7 @@ export function CtaBanner() {
           costo y sin compromiso.
         </p>
         <Link
-          href="#contacto"
+          href="/#contacto"
           className={cn(buttonVariants({ variant: "default", size: "lg" }), "shrink-0")}
         >
           Agendar reunión gratuita

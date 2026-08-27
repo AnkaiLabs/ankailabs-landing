@@ -8,9 +8,9 @@ import { SectionContainer } from "@/components/shared/section-container";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "#como-trabaja", label: "Servicios" },
-  { href: "#vuelve", label: "VUELVE" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/como-trabajamos", label: "Servicios" },
+  { href: "/vuelve", label: "VUELVE" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export function Navbar() {
@@ -42,7 +42,7 @@ export function Navbar() {
         )}
       >
         <SectionContainer className="flex h-16 items-center justify-between">
-          <Link href="#" onClick={close} className="text-lg font-extrabold tracking-tight text-white">
+          <Link href="/" onClick={close} className="text-lg font-extrabold tracking-tight text-white">
             ANKAI LABS
           </Link>
 
@@ -61,7 +61,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="#contacto"
+              href="/#contacto"
               className={cn(buttonVariants({ variant: "default" }), "hidden md:inline-flex")}
             >
               Agendar reunión
@@ -130,7 +130,7 @@ export function Navbar() {
               className="mt-8"
             >
               <Link
-                href="#contacto"
+                href="/#contacto"
                 onClick={close}
                 className={cn(buttonVariants({ variant: "default", size: "lg" }), "w-full justify-center")}
               >

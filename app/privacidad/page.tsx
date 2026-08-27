@@ -2,10 +2,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionContainer } from "@/components/shared/section-container";
 
+const PAGE_TITLE = "Política de privacidad";
+const PAGE_DESCRIPTION =
+  "Cómo recopilamos, usamos y protegemos tus datos personales en ANKAI LABS.";
+
 export const metadata: Metadata = {
-  title: "Política de privacidad — ANKAI LABS",
-  description:
-    "Cómo recopilamos, usamos y protegemos tus datos personales en ANKAI LABS.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: {
+    canonical: "/privacidad",
+  },
+  openGraph: {
+    title: `${PAGE_TITLE} — ANKAI LABS`,
+    description: PAGE_DESCRIPTION,
+    url: "https://ankailabs.cl/privacidad",
+    siteName: "ANKAI LABS",
+    locale: "es_CL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${PAGE_TITLE} — ANKAI LABS`,
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 export default function PrivacidadPage() {

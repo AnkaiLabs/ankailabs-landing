@@ -52,7 +52,7 @@ function FloatingLead() {
           </div>
           <div className="min-w-0">
             <p className="text-xs font-bold text-white">Nuevo lead recibido</p>
-            <p className="mt-0.5 truncate text-[11px] text-white/50">Clínica Los Robles · 3 sucursales</p>
+            <p className="mt-0.5 truncate text-[11px] text-white/50">Restaurante Ejemplo · 2 sucursales</p>
             <p className="mt-2 text-[11px] font-semibold text-verde">→ Notificado a Slack + CRM</p>
           </div>
         </div>
@@ -257,13 +257,13 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
             <Link
-              href="#contacto"
+              href="/#contacto"
               className={cn(buttonVariants({ variant: "default", size: "lg" }), "w-full justify-center md:w-auto")}
             >
               Agendar reunión gratuita de 20 min
             </Link>
             <Link
-              href="#como-trabaja"
+              href="/como-trabajamos"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "w-full justify-center border-white/20 text-white hover:bg-white/5 md:w-auto"

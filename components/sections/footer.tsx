@@ -2,8 +2,9 @@ import Link from "next/link";
 import { SectionContainer } from "@/components/shared/section-container";
 
 const NAV_LINKS = [
-  { href: "#como-trabaja", label: "Servicios" },
-  { href: "#vuelve", label: "VUELVE" },
+  { href: "/como-trabajamos", label: "Servicios" },
+  { href: "/vuelve", label: "VUELVE" },
+  { href: "/nosotros", label: "Nosotros" },
   { href: "/privacidad", label: "Política de privacidad" },
 ];
 
