@@ -8,15 +8,9 @@ import { Kicker } from "@/components/shared/kicker";
 import { SectionContainer } from "@/components/shared/section-container";
 import { cn } from "@/lib/utils";
 
-const STATS = [
-  { value: "12 h",  label: "ahorradas hoy",    color: "text-verde-bright" },
-  { value: "847",   label: "tareas ejecutadas", color: "text-white" },
-  { value: "0",     label: "errores humanos",   color: "text-violeta-light" },
-];
-
 const DONE_TASKS = [
-  { label: "Facturas del mes → Google Sheets",  time: "hace 2 min" },
-  { label: "Leads nuevos → CRM + WhatsApp",     time: "hace 5 min" },
+  { label: "Facturas → Google Sheets",  time: "hace 2 min" },
+  { label: "Leads → CRM y WhatsApp",     time: "hace 5 min" },
   { label: "Reporte de ventas → Gerencia",       time: "hace 1 h"  },
 ];
 
@@ -81,16 +75,12 @@ function FloatingReport() {
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-xs font-bold text-white">Reporte mensual listo</p>
-            <p className="mt-0.5 text-[11px] text-white/50">$4.2M facturado este mes</p>
-            <div className="mt-2.5 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-              <motion.div
-                initial={{ width: "0%" }}
-                animate={{ width: "78%" }}
-                transition={{ delay: 2, duration: 1, ease: "easeOut" }}
-                className="h-full rounded-full bg-violeta-light"
-              />
-            </div>
-            <p className="mt-1 text-[10px] text-violeta-light/70">78% vs meta del mes</p>
+            <p className="mt-0.5 text-[11px] text-white/50">
+              Consolidado sin que nadie lo arme a mano
+            </p>
+            <p className="mt-2 text-[11px] font-semibold text-violeta-light">
+              → Enviado a gerencia
+            </p>
           </div>
         </div>
       </motion.div>
@@ -121,40 +111,15 @@ function HeroVisual() {
             <div className="h-3 w-3 rounded-full bg-white/[0.07]" />
           </div>
           <div className="flex-1 rounded-md bg-white/[0.05] py-1.5 text-center text-xs text-white/25">
-            sistema.ankailabs.cl
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-verde opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-verde" />
-            </span>
-            <span className="text-xs font-semibold text-verde">en vivo</span>
+            Ejemplo de una operación automatizada
           </div>
         </div>
 
         <div className="p-4 md:p-8">
 
-          {/* Stats */}
-          <div className="mb-7 grid grid-cols-3 gap-4">
-            {STATS.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35 + i * 0.1 }}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.025] px-2 py-4 text-center md:px-4 md:py-5"
-              >
-                <p className={cn("text-xl font-extrabold tabular-nums md:text-3xl", s.color)}>
-                  {s.value}
-                </p>
-                <p className="mt-1 text-[10px] leading-tight text-white/35 md:mt-1.5 md:text-xs">{s.label}</p>
-              </motion.div>
-            ))}
-          </div>
-
           {/* Separator */}
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/20">
-            Flujos activos
+            Procesos que dejan de hacerse a mano
           </p>
 
           {/* Task list */}
@@ -190,7 +155,7 @@ function HeroVisual() {
                 />
               </div>
               <p className="flex-1 truncate text-sm text-violeta-light">
-                Procesando cotizaciones pendientes…
+                Procesando cotizaciones…
               </p>
               <span className="shrink-0 text-xs text-violeta/60">ahora</span>
             </motion.div>
@@ -213,7 +178,7 @@ function HeroVisual() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.25 }}
-            className="mt-6 text-center text-xs text-white/20"
+            className="mt-6 text-center text-xs text-white/40"
           >
             Ejecutando mientras tú atiendes a tus clientes
           </motion.p>

@@ -3,7 +3,7 @@ import { SectionContainer } from "@/components/shared/section-container";
 import { Wordmark } from "@/components/shared/logo";
 
 const NAV_LINKS = [
-  { href: "/como-trabajamos", label: "Servicios" },
+  { href: "/como-trabajamos", label: "Cómo trabajamos" },
   { href: "/vuelve", label: "VUELVE" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/privacidad", label: "Política de privacidad" },

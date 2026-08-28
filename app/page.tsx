@@ -1,6 +1,5 @@
 import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
-import { SocialProof } from "@/components/sections/social-proof";
 import { HowItWorksTeaser } from "@/components/sections/how-it-works-teaser";
 import { VuelveTeaser } from "@/components/sections/vuelve-teaser";
 import { Icp } from "@/components/sections/icp";
@@ -11,7 +10,6 @@ export default function Home() {
     <>
       <Hero />
       <Problem />
-      <SocialProof />
       <HowItWorksTeaser />
       <VuelveTeaser />
       <Icp />

@@ -9,7 +9,7 @@ import { Wordmark } from "@/components/shared/logo";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "/como-trabajamos", label: "Servicios" },
+  { href: "/como-trabajamos", label: "Cómo trabajamos" },
   { href: "/vuelve", label: "VUELVE" },
   { href: "/#contacto", label: "Contacto" },
 ];
