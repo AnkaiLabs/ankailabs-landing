@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 320">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #141414;
+      }
+
+      .st1 {
+        fill: #fff;
+      }
+
+      .st2 {
+        fill: none;
+      }
+
+      .st3 {
+        fill: #00c896;
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <polygon class="st2" points="100.19 255.69 100.19 62.69 137.19 62.69 137.19 151.68 211.73 62.69 256.9 62.69 175.01 157.85 262.07 255.69 215.27 255.69 137.19 167.77 137.19 255.69 100.19 255.69"/>
+    </clipPath>
+  </defs>
+  <rect class="st0" width="320" height="320" rx="76.8" ry="76.8"/>
+  <g>
+    <g>
+      <path class="st1" d="M100.93,256.5V63.5h37v88.99l74.54-88.99h45.16l-81.89,95.16,87.06,97.84h-46.79l-78.08-87.92v87.92h-37Z"/>
+      <g class="st4">
+        <rect class="st3" x="137.19" y="158.69" width="123" height="98"/>
+      </g>
+    </g>
+    <rect class="st3" x="241.93" y="141.5" width="37" height="37"/>
+    <rect class="st3" x="41.07" y="141.5" width="37" height="37"/>
+  </g>
+</svg>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { buttonVariants } from "@/components/ui/button";
 import { SectionContainer } from "@/components/shared/section-container";
+import { Wordmark } from "@/components/shared/logo";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
@@ -42,8 +43,8 @@ export function Navbar() {
         )}
       >
         <SectionContainer className="flex h-16 items-center justify-between">
-          <Link href="/" onClick={close} className="text-lg font-extrabold tracking-tight text-white">
-            ANKAI LABS
+          <Link href="/" onClick={close} aria-label="ANKAI LABS — ir al inicio">
+            <Wordmark />
           </Link>
 
           {/* Desktop nav */}

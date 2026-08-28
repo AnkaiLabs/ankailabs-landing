@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SectionContainer } from "@/components/shared/section-container";
+import { Wordmark } from "@/components/shared/logo";
 
 const NAV_LINKS = [
   { href: "/como-trabajamos", label: "Servicios" },
@@ -29,8 +30,8 @@ export function Footer() {
     <footer className="border-t border-white/5 py-12">
       <SectionContainer className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-lg font-extrabold text-white">ANKAI LABS</p>
-          <p className="mt-1 text-sm text-text-tertiary">
+          <Wordmark />
+          <p className="mt-2 text-sm text-text-tertiary">
             Inteligencia con esencia
           </p>
           <div className="mt-4 flex items-center gap-3">
