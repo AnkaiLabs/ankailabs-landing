@@ -9,9 +9,11 @@ export default function Home() {
   return (
     <>
       <Hero />
+      {/* VUELVE va inmediatamente después del hero: es el producto principal,
+          no un caso al final. La consultoría queda después, como servicio. */}
+      <VuelveTeaser />
       <Problem />
       <HowItWorksTeaser />
-      <VuelveTeaser />
       <Icp />
       <LeadForm />
     </>

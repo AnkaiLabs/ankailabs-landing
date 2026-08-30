@@ -10,7 +10,7 @@ export function HowItWorksTeaser() {
     <section id="como-trabaja" className="border-t border-white/5 py-20 md:py-28">
       <SectionContainer className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <div className="max-w-xl">
-          <Kicker>Cómo trabaja ANKAI</Kicker>
+          <Kicker>También trabajamos por encargo</Kicker>
           <h2 className="mt-4 text-2xl font-extrabold text-white md:text-3xl">
             Todo empieza con una conversación gratuita, no con una
             cotización.
