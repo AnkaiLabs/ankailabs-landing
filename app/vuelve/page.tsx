@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CtaBanner } from "@/components/sections/cta-banner";
-import { PageHeader } from "@/components/shared/page-header";
+import { VuelvePageHeader } from "@/components/vuelve/page-header";
 import { SectionContainer } from "@/components/shared/section-container";
-import { buttonVariants } from "@/components/ui/button";
 import { VUELVE_WHATSAPP_URL } from "@/lib/content/vuelve";
-import { cn } from "@/lib/utils";
 
 const PAGE_TITLE = "VUELVE";
 const PAGE_DESCRIPTION =
@@ -160,14 +157,13 @@ export default function VuelvePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
       />
-      <PageHeader
+      <VuelvePageHeader
         kicker="Primer producto de ANKAI LABS"
-        glow="verde"
         title={
           <>
             El 70% de los clientes de un restaurante no vuelven la segunda
             vez.{" "}
-            <span className="text-verde-bright">
+            <span className="text-vuelve-rojo">
               No porque no les gustó — sino porque nadie los volvió a
               invitar.
             </span>
@@ -180,14 +176,14 @@ export default function VuelvePage() {
       <section className="pb-16 md:pb-20">
         <SectionContainer>
           <div className="flex flex-wrap items-center gap-4">
-            <span className="rounded-full border border-verde/30 bg-verde/10 px-4 py-1.5 text-sm font-semibold text-verde-bright">
+            <span className="rounded-full border border-vuelve-rojo/30 bg-vuelve-rojo/10 px-4 py-1.5 text-sm font-semibold text-vuelve-rojo">
               Desde $29.000/mes CLP
             </span>
             <a
               href={VUELVE_WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={buttonVariants({ variant: "default", size: "lg" })}
+              className="rounded-lg bg-vuelve-rojo px-6 py-3.5 text-base font-bold text-white transition-opacity hover:opacity-90"
             >
               Quiero conocer VUELVE
             </a>
@@ -196,24 +192,24 @@ export default function VuelvePage() {
       </section>
 
       {/* ── Recorrido del cliente ── */}
-      <section className="border-t border-white/5 py-16 md:py-20">
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
-          <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary">
+          <p className="text-xs font-semibold uppercase tracking-widest text-vuelve-gris-claro">
             Lo que vive el cliente
           </p>
-          <h2 className="mt-3 text-2xl font-extrabold text-white md:text-3xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-vuelve-tinta md:text-3xl">
             Del QR a la tarjeta en el celular, en 30 segundos.
           </h2>
 
           <div className="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             {CLIENT_STEPS.map((step, i) => (
               <div key={step.title} className="flex gap-4">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-verde/30 bg-verde/10 text-sm font-bold text-verde-bright">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-vuelve-rojo/30 bg-vuelve-rojo/10 text-sm font-bold text-vuelve-rojo">
                   {i + 1}
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-white">{step.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
+                  <h3 className="font-extrabold text-vuelve-tinta">{step.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-vuelve-gris">
                     {step.desc}
                   </p>
                 </div>
@@ -225,12 +221,12 @@ export default function VuelvePage() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {/* Paso 1 — QR scan — violeta */}
             <div className="group relative">
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-violeta/40 to-transparent pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-vuelve-azul/40 to-transparent pointer-events-none" />
               <div
-                className="relative overflow-hidden rounded-2xl border border-violeta/30 bg-white/[0.03] shadow-2xl shadow-violeta/10 transition-colors hover:border-violeta/50"
+                className="relative overflow-hidden rounded-2xl border border-vuelve-azul/30 bg-[#F8F9F8] shadow-2xl shadow-vuelve-azul/10 transition-colors hover:border-vuelve-azul/50"
                 style={{ aspectRatio: "4/5" }}
               >
-                <div className="absolute left-3 top-3 z-10 rounded-full bg-violeta/20 px-3.5 py-1.5 text-sm font-semibold text-violeta-light ring-1 ring-violeta/30">
+                <div className="absolute left-3 top-3 z-10 rounded-full bg-vuelve-azul/15 px-3.5 py-1.5 text-sm font-semibold text-vuelve-azul ring-1 ring-vuelve-azul/30">
                   Sin descarga
                 </div>
                 <Image
@@ -242,7 +238,7 @@ export default function VuelvePage() {
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/75 to-transparent px-4 pb-4 pt-20">
                   <div className="flex items-start gap-2.5">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violeta/25 text-xs font-bold text-violeta-light backdrop-blur-sm">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-vuelve-azul/20 text-xs font-bold text-vuelve-azul backdrop-blur-sm">
                       1
                     </span>
                     <p className="text-sm leading-snug text-white/90">
@@ -256,12 +252,12 @@ export default function VuelvePage() {
 
             {/* Paso 2 — Wallet — verde */}
             <div className="group relative">
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-verde/40 to-transparent pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-vuelve-rojo/40 to-transparent pointer-events-none" />
               <div
-                className="relative overflow-hidden rounded-2xl border border-verde/30 bg-white/[0.03] shadow-2xl shadow-verde/10 transition-colors hover:border-verde/50"
+                className="relative overflow-hidden rounded-2xl border border-vuelve-rojo/30 bg-[#F8F9F8] shadow-2xl shadow-vuelve-rojo/10 transition-colors hover:border-vuelve-rojo/50"
                 style={{ aspectRatio: "4/5" }}
               >
-                <div className="absolute left-3 top-3 z-10 rounded-full bg-verde/20 px-3.5 py-1.5 text-sm font-semibold text-verde-bright ring-1 ring-verde/30">
+                <div className="absolute left-3 top-3 z-10 rounded-full bg-vuelve-rojo/15 px-3.5 py-1.5 text-sm font-semibold text-vuelve-rojo ring-1 ring-vuelve-rojo/30">
                   Sin app
                 </div>
                 <div className="absolute top-3 right-3 z-10 flex w-[130px] flex-col gap-2">
@@ -269,7 +265,7 @@ export default function VuelvePage() {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                       <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                     </svg>
-                    <span className="text-sm font-semibold tracking-tight text-white">Apple Pay</span>
+                    <span className="text-sm font-semibold tracking-tight text-vuelve-tinta">Apple Pay</span>
                   </div>
                   <div className="flex w-full items-center justify-center gap-2 rounded-xl bg-white py-2.5 ring-1 ring-black/10 backdrop-blur-sm">
                     <svg width="20" height="20" viewBox="0 0 24 24">
@@ -290,7 +286,7 @@ export default function VuelvePage() {
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent px-4 pb-4 pt-20">
                   <div className="flex items-start gap-2.5">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-verde/25 text-xs font-bold text-verde-bright backdrop-blur-sm">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-vuelve-rojo/25 text-xs font-bold text-vuelve-rojo backdrop-blur-sm">
                       2
                     </span>
                     <p className="text-sm leading-snug text-white/90">
@@ -307,12 +303,12 @@ export default function VuelvePage() {
 
             {/* Paso 3 — Gana puntos — violeta */}
             <div className="group relative">
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-violeta/40 to-transparent pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-vuelve-azul/40 to-transparent pointer-events-none" />
               <div
-                className="relative overflow-hidden rounded-2xl border border-violeta/30 bg-white/[0.03] shadow-2xl shadow-violeta/10 transition-colors hover:border-violeta/50"
+                className="relative overflow-hidden rounded-2xl border border-vuelve-azul/30 bg-[#F8F9F8] shadow-2xl shadow-vuelve-azul/10 transition-colors hover:border-vuelve-azul/50"
                 style={{ aspectRatio: "4/5" }}
               >
-                <div className="absolute left-3 top-3 z-10 rounded-full bg-violeta/20 px-3.5 py-1.5 text-sm font-semibold text-violeta-light ring-1 ring-violeta/30">
+                <div className="absolute left-3 top-3 z-10 rounded-full bg-vuelve-azul/15 px-3.5 py-1.5 text-sm font-semibold text-vuelve-azul ring-1 ring-vuelve-azul/30">
                   Automático
                 </div>
                 <Image
@@ -324,7 +320,7 @@ export default function VuelvePage() {
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent px-4 pb-4 pt-20">
                   <div className="flex items-start gap-2.5">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violeta/25 text-xs font-bold text-violeta-light backdrop-blur-sm">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-vuelve-azul/20 text-xs font-bold text-vuelve-azul backdrop-blur-sm">
                       3
                     </span>
                     <p className="text-sm leading-snug text-white/90">
@@ -337,12 +333,12 @@ export default function VuelvePage() {
 
             {/* Paso 4 — WhatsApp — verde */}
             <div className="group relative">
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-verde/40 to-transparent pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-vuelve-rojo/40 to-transparent pointer-events-none" />
               <div
-                className="relative overflow-hidden rounded-2xl border border-verde/30 bg-[#0B141A] shadow-2xl shadow-verde/10 transition-colors hover:border-verde/50"
+                className="relative overflow-hidden rounded-2xl border border-vuelve-rojo/30 bg-[#0B141A] shadow-2xl shadow-vuelve-rojo/10 transition-colors hover:border-vuelve-rojo/50"
                 style={{ aspectRatio: "4/5" }}
               >
-                <div className="absolute left-3 top-3 z-10 rounded-full bg-verde/20 px-3.5 py-1.5 text-sm font-semibold text-verde-bright ring-1 ring-verde/30">
+                <div className="absolute left-3 top-3 z-10 rounded-full bg-vuelve-rojo/15 px-3.5 py-1.5 text-sm font-semibold text-vuelve-rojo ring-1 ring-vuelve-rojo/30">
                   En tiempo real
                 </div>
                 <Image
@@ -353,7 +349,7 @@ export default function VuelvePage() {
                   className="object-cover object-top"
                 />
                 <div className="absolute left-3 right-3 top-14 z-10">
-                  <div className="relative rounded-2xl bg-white/10 p-3 shadow-xl backdrop-blur-md ring-1 ring-white/20">
+                  <div className="relative rounded-2xl bg-[#E8EBE9] p-3 shadow-xl backdrop-blur-md ring-1 ring-white/20">
                     <div
                       className="absolute -bottom-2 left-5 h-0 w-0"
                       style={{
@@ -369,7 +365,7 @@ export default function VuelvePage() {
                         </svg>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-[11px] font-bold text-white">La Trattoria di Nonna</p>
+                        <p className="text-[11px] font-bold text-vuelve-tinta">La Trattoria di Nonna</p>
                         <p className="mt-0.5 text-[11px] leading-snug text-white/80">
                           ¡Ganaste +45 puntos hoy! 🎉 Ya puedes canjear tu{" "}
                           <span className="font-semibold text-[#25D366]">Bebida gratis 🥤</span>
@@ -381,7 +377,7 @@ export default function VuelvePage() {
                 </div>
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent px-4 pb-4 pt-20">
                   <div className="flex items-start gap-2.5">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-verde/25 text-xs font-bold text-verde-bright backdrop-blur-sm">
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-vuelve-rojo/25 text-xs font-bold text-vuelve-rojo backdrop-blur-sm">
                       4
                     </span>
                     <p className="text-sm leading-snug text-white/90">
@@ -396,12 +392,12 @@ export default function VuelvePage() {
       </section>
 
       {/* ── Lo que vive el cajero ── */}
-      <section className="border-t border-white/5 py-16 md:py-20">
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
-          <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary">
+          <p className="text-xs font-semibold uppercase tracking-widest text-vuelve-gris-claro">
             Lo que vive el cajero
           </p>
-          <h2 className="mt-3 text-2xl font-extrabold text-white md:text-3xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-vuelve-tinta md:text-3xl">
             Acreditar puntos toma el mismo gesto de siempre — hasta en hora
             punta.
           </h2>
@@ -410,10 +406,10 @@ export default function VuelvePage() {
             {CAJERO_TRACKS.map((item) => (
               <div
                 key={item.label}
-                className="rounded-xl border border-white/10 bg-white/[0.02] p-5"
+                className="rounded-xl border border-vuelve-linea bg-[#F8F9F8] p-5"
               >
-                <p className="text-sm font-semibold text-white">{item.label}</p>
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                <p className="text-sm font-semibold text-vuelve-tinta">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-vuelve-gris">
                   {item.desc}
                 </p>
               </div>
@@ -423,12 +419,12 @@ export default function VuelvePage() {
       </section>
 
       {/* ── Vista del dueño ── */}
-      <section className="border-t border-white/5 py-16 md:py-20">
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
-          <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary">
+          <p className="text-xs font-semibold uppercase tracking-widest text-vuelve-gris-claro">
             Lo que ve el dueño
           </p>
-          <h2 className="mt-3 text-2xl font-extrabold text-white md:text-3xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-vuelve-tinta md:text-3xl">
             Un dashboard que te dice quién vuelve, cuánto gasta y qué
             recompensas funcionan.
           </h2>
@@ -437,24 +433,24 @@ export default function VuelvePage() {
             {DASHBOARD_TRACKS.map((item) => (
               <div
                 key={item.label}
-                className="rounded-xl border border-white/10 bg-white/[0.02] p-5"
+                className="rounded-xl border border-vuelve-linea bg-[#F8F9F8] p-5"
               >
-                <p className="text-sm font-semibold text-white">{item.label}</p>
-                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                <p className="text-sm font-semibold text-vuelve-tinta">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-vuelve-gris">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50">
-            <div className="flex items-center gap-3 border-b border-white/10 bg-white/[0.04] px-4 py-3">
+          <div className="mt-6 overflow-hidden rounded-2xl border border-vuelve-linea shadow-2xl shadow-black/10">
+            <div className="flex items-center gap-3 border-b border-vuelve-linea bg-[#F1F3F2] px-4 py-3">
               <div className="flex gap-1.5" aria-hidden="true">
-                <div className="h-3 w-3 rounded-full bg-white/25" />
-                <div className="h-3 w-3 rounded-full bg-white/15" />
-                <div className="h-3 w-3 rounded-full bg-white/10" />
+                <div className="h-3 w-3 rounded-full bg-[#C2C7C4]" />
+                <div className="h-3 w-3 rounded-full bg-[#D6DAD8]" />
+                <div className="h-3 w-3 rounded-full bg-[#E8EBE9]" />
               </div>
-              <div className="flex-1 rounded-md bg-white/[0.07] px-3 py-1 text-center text-xs text-text-tertiary">
+              <div className="flex-1 rounded-md bg-[#F1F3F2] px-3 py-1 text-center text-xs text-vuelve-gris-claro">
                 vuelve.ankailabs.cl / dashboard
               </div>
             </div>
@@ -466,7 +462,7 @@ export default function VuelvePage() {
               className="h-auto w-full"
             />
           </div>
-          <p className="mt-3 text-sm text-text-secondary">
+          <p className="mt-3 text-sm text-vuelve-gris">
             Vista en tiempo real desde cualquier dispositivo. Sin instalar nada,
             desde el navegador.
           </p>
@@ -474,9 +470,9 @@ export default function VuelvePage() {
       </section>
 
       {/* ── Precios ── */}
-      <section className="border-t border-white/5 py-16 md:py-20">
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
-          <h2 className="max-w-2xl text-2xl font-extrabold text-white md:text-3xl">
+          <h2 className="max-w-2xl text-2xl font-extrabold text-vuelve-tinta md:text-3xl">
             Tres planes mensuales, sin contrato de permanencia.
           </h2>
 
@@ -488,19 +484,19 @@ export default function VuelvePage() {
               </caption>
               <thead>
                 <tr>
-                  <th className="p-4 text-left align-bottom font-normal text-text-tertiary" />
+                  <th className="p-4 text-left align-bottom font-normal text-vuelve-gris-claro" />
                   {PLANS.map((plan) => (
                     <th
                       key={plan.name}
                       scope="col"
                       className="p-4 text-left align-bottom"
                     >
-                      <p className="text-base font-extrabold text-white">
+                      <p className="text-base font-extrabold text-vuelve-tinta">
                         {plan.name}
                       </p>
-                      <p className="mt-1 text-2xl font-extrabold text-verde-bright">
+                      <p className="mt-1 text-2xl font-extrabold text-vuelve-rojo">
                         {plan.price}
-                        <span className="text-xs font-medium text-text-tertiary">
+                        <span className="text-xs font-medium text-vuelve-gris-claro">
                           {" "}
                           / mes CLP
                         </span>
@@ -511,15 +507,15 @@ export default function VuelvePage() {
               </thead>
               <tbody>
                 {FEATURE_ROWS.map((row) => (
-                  <tr key={row.label} className="border-t border-white/10">
+                  <tr key={row.label} className="border-t border-vuelve-linea">
                     <th
                       scope="row"
-                      className="p-4 text-left font-normal text-text-secondary"
+                      className="p-4 text-left font-normal text-vuelve-gris"
                     >
                       {row.label}
                     </th>
                     {row.values.map((value, i) => (
-                      <td key={i} className="p-4 text-text-secondary">
+                      <td key={i} className="p-4 text-vuelve-gris">
                         {value}
                       </td>
                     ))}
@@ -528,7 +524,7 @@ export default function VuelvePage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-text-secondary">
+          <p className="mt-4 text-sm text-vuelve-gris">
             La inscripción, el Wallet, los puntos y el QR están completos
             desde el Plan Inicio — nunca se limita el núcleo del producto.
           </p>
@@ -536,16 +532,16 @@ export default function VuelvePage() {
       </section>
 
       {/* ── Pack de Lanzamiento ── */}
-      <section className="border-t border-white/5 py-16 md:py-20">
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
-          <div className="rounded-2xl border border-verde/30 bg-verde/[0.06] p-6 md:p-8">
-            <p className="text-sm font-semibold text-verde-bright">
+          <div className="rounded-2xl border border-vuelve-rojo/30 bg-vuelve-rojo/[0.05] p-6 md:p-8">
+            <p className="text-sm font-semibold text-vuelve-rojo">
               Pack de Lanzamiento — $30.000 CLP, pago único
             </p>
-            <h2 className="mt-2 text-xl font-extrabold text-white md:text-2xl">
+            <h2 className="mt-2 text-xl font-extrabold text-vuelve-tinta md:text-2xl">
               Para empezar con todo listo, no solo con la cuenta creada.
             </h2>
-            <ul className="mt-5 space-y-2.5 text-sm text-text-secondary md:text-base">
+            <ul className="mt-5 space-y-2.5 text-sm text-vuelve-gris md:text-base">
               <li>
                 3 soportes QR con la marca de tu restaurante — mostrador y las
                 2 mesas de mayor tráfico.
@@ -554,7 +550,7 @@ export default function VuelvePage() {
               <li>Configuración guiada completa, en 20 minutos.</li>
               <li>Primer mes de Plan Inicio incluido.</li>
             </ul>
-            <p className="mt-5 text-sm text-text-secondary">
+            <p className="mt-5 text-sm text-vuelve-gris">
               Desde el mes 2, precio normal del Plan Inicio: $29.000 CLP/mes.
               Es una condición de lanzamiento: la mantenemos mientras estamos
               afinando el onboarding con los primeros restaurantes.
@@ -563,10 +559,7 @@ export default function VuelvePage() {
               href={VUELVE_WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ variant: "default", size: "lg" }),
-                "mt-6 inline-flex"
-              )}
+              className="mt-6 inline-flex rounded-lg bg-vuelve-rojo px-6 py-3.5 text-base font-bold text-white transition-opacity hover:opacity-90"
             >
               Quiero el Pack de Lanzamiento
             </a>
@@ -575,12 +568,12 @@ export default function VuelvePage() {
       </section>
 
       {/* ── Implementación / Objeciones ── */}
-      <section className="border-t border-white/5 py-16 md:py-20">
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
-          <p className="text-xs font-semibold uppercase tracking-widest text-text-tertiary">
+          <p className="text-xs font-semibold uppercase tracking-widest text-vuelve-gris-claro">
             Cómo se implementa
           </p>
-          <h2 className="mt-3 text-2xl font-extrabold text-white md:text-3xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-vuelve-tinta md:text-3xl">
             15 minutos para que esté funcionando. Sin tocar tu caja.
           </h2>
 
@@ -588,10 +581,10 @@ export default function VuelvePage() {
             {OBJECTIONS.map((obj) => (
               <div
                 key={obj.q}
-                className="rounded-xl border border-white/10 bg-white/[0.02] p-6"
+                className="rounded-xl border border-vuelve-linea bg-[#F8F9F8] p-6"
               >
-                <p className="text-sm font-semibold text-white">{obj.q}</p>
-                <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                <p className="text-sm font-semibold text-vuelve-tinta">{obj.q}</p>
+                <p className="mt-3 text-sm leading-relaxed text-vuelve-gris">
                   {obj.a}
                 </p>
               </div>
@@ -601,22 +594,22 @@ export default function VuelvePage() {
       </section>
 
       {/* ── Stat + CTA final ── */}
-      <section className="border-t border-white/5 py-16 md:py-20">
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
-          <div className="flex flex-col gap-6 rounded-2xl border border-verde/20 bg-verde/[0.06] p-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-6 rounded-2xl border border-vuelve-rojo/20 bg-vuelve-rojo/[0.05] p-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-lg">
-              <p className="text-sm font-semibold text-verde-bright">
+              <p className="text-sm font-semibold text-vuelve-rojo">
                 Por qué Wallet y no app
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+              <p className="mt-2 text-sm leading-relaxed text-vuelve-gris">
                 Cuando la tarjeta se guarda en el Wallet, entre el{" "}
-                <strong className="text-white">65 y 75% de los clientes</strong>{" "}
+                <strong className="text-vuelve-tinta">65 y 75% de los clientes</strong>{" "}
                 acepta quedársela. Cuando hay que descargar una app, la cifra
                 cae al 10-20%. Portillo&apos;s llegó a 2 millones de miembros en
                 10 meses con el modelo sin app. La tarjeta vive en la pantalla
                 de bloqueo, no en una app que nadie recuerda abrir.
               </p>
-              <p className="mt-3 text-xs text-text-tertiary">
+              <p className="mt-3 text-xs text-vuelve-gris-claro">
                 Fuente: Portillo&apos;s Perks, tasas de enrollment del programa.
               </p>
             </div>
@@ -625,7 +618,7 @@ export default function VuelvePage() {
                 href={VUELVE_WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(buttonVariants({ variant: "default", size: "lg" }))}
+                className="rounded-lg bg-vuelve-rojo px-6 py-3.5 text-base font-bold text-white transition-opacity hover:opacity-90"
               >
                 Hablar por WhatsApp
               </a>
@@ -633,10 +626,7 @@ export default function VuelvePage() {
                 href="https://vuelve.ankailabs.cl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "border-white/20 text-white hover:bg-white/5"
-                )}
+                className="rounded-lg border border-vuelve-linea px-6 py-3.5 text-base font-bold text-vuelve-tinta transition-colors hover:bg-[#F1F3F2]"
               >
                 Ya soy cliente — entrar
               </a>
@@ -645,12 +635,29 @@ export default function VuelvePage() {
         </SectionContainer>
       </section>
 
-      <CtaBanner
-        text="¿Tienes un restaurante y hoy no sabes quién vuelve? Escríbenos y lo vemos en 10 minutos."
-        href={VUELVE_WHATSAPP_URL}
-        label="Hablar por WhatsApp"
-        external
-      />
+      {/* Cierre. El banner compartido resuelve el sistema oscuro de ANKAI, así
+          que VUELVE lleva el suyo, con la barra de acento de la marca. */}
+      <section className="border-t border-vuelve-linea bg-[#F8F9F8]">
+        <div className="flex h-1.5 w-full" aria-hidden="true">
+          <span className="flex-1 bg-vuelve-rojo" />
+          <span className="flex-1 bg-vuelve-azul" />
+          <span className="flex-1 bg-vuelve-amarillo" />
+        </div>
+        <SectionContainer className="flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
+          <p className="max-w-lg text-lg font-medium text-vuelve-tinta">
+            ¿Tienes un restaurante y hoy no sabes quién vuelve? Escríbenos y lo
+            vemos en 10 minutos.
+          </p>
+          <a
+            href={VUELVE_WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded-lg bg-vuelve-rojo px-6 py-3.5 text-base font-bold text-white transition-opacity hover:opacity-90"
+          >
+            Hablar por WhatsApp
+          </a>
+        </SectionContainer>
+      </section>
     </>
   );
 }

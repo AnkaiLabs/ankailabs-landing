@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Script from "next/script";
-import { Navbar } from "@/components/sections/navbar";
-import { Footer } from "@/components/sections/footer";
-import { FloatingCta } from "@/components/shared/floating-cta";
 import "./globals.css";
 
 const GA_ID = "G-XRX59FXMNJ";
@@ -62,10 +59,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-full flex flex-col overflow-x-hidden">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingCta />
+        {children}
       </body>
     </html>
   );

@@ -16,6 +16,19 @@ html, body {
   --color-violeta-light: #a984d4;
   --color-text-secondary: #b7b7be;
   --color-text-tertiary: #76767e;
+
+  /* VUELVE — paleta propia. Es marca autónoma, no hereda el verde/violeta de
+     ANKAI a propósito (docs/vuelve-marca.md §1). Vive sobre fondo blanco. */
+  --color-vuelve-rojo: #e20613;
+  --color-vuelve-azul: #049be6;
+  --color-vuelve-amarillo: #feec00;
+  /* El amarillo de marca es ilegible como texto sobre blanco; esta es su
+     variante para tipografía. */
+  --color-vuelve-ocre: #8a6e00;
+  --color-vuelve-tinta: #141414;
+  --color-vuelve-gris: #5a6560;
+  --color-vuelve-gris-claro: #8a9691;
+  --color-vuelve-linea: #e4e7e5;
 }
 
 @theme inline {
