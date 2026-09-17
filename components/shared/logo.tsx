@@ -11,45 +11,39 @@
 
 const VERDE = "#00C896";
 
-// El clipPath recorta el bloque verde a la forma de la K. El id es constante: si
-// el monograma aparece dos veces (navbar y footer) los dos clipPath son idénticos,
-// así que resolver ambos al primero da el mismo resultado.
-const CLIP_ID = "ankai-monograma-clip";
-
+// Geometría corregida el 14-09-2026 sobre el PNG de marca («ankai-K..png»). La
+// exportación SVG anterior traía una K de otras proporciones y el bloque verde
+// recortado fuera de lugar (asomaba una franja blanca bajo la diagonal). Esta K es
+// la del lockup `.ANKAI.` escalada, y la diagonal va como forma propia, sin clipPath.
 export function Logo({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="41.07 63.5 237.86 193"
+      viewBox="44.72 66.29 230.38 187.58"
       // width/height fijan la proporción intrínseca. Sin ellos, un SVG con
       // `w-auto` dentro de un contenedor flex puede colapsar a cero de ancho.
-      width="238"
-      height="193"
+      width="230"
+      height="188"
       role="img"
       aria-label="ANKAI LABS"
       className={className}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <defs>
-        <clipPath id={CLIP_ID}>
-          <polygon points="100.19 255.69 100.19 62.69 137.19 62.69 137.19 151.68 211.73 62.69 256.9 62.69 175.01 157.85 262.07 255.69 215.27 255.69 137.19 167.77 137.19 255.69 100.19 255.69" />
-        </clipPath>
-      </defs>
-
       {/* La K completa */}
       <path
         fill="currentColor"
-        d="M100.93,256.5V63.5h37v88.99l74.54-88.99h45.16l-81.89,95.16,87.06,97.84h-46.79l-78.08-87.92v87.92h-37Z"
+        d="M106.46,253.87L106.46,66.29L141.89,66.29L141.89,152.78L213.28,66.29L256.53,66.29L178.11,158.78L261.48,253.87L216.66,253.87L141.89,168.42L141.89,253.87Z"
       />
 
-      {/* La diagonal inferior, en verde, recortada a la forma de la K */}
-      <g clipPath={`url(#${CLIP_ID})`}>
-        <rect x="137.19" y="158.69" width="123" height="98" fill={VERDE} />
-      </g>
+      {/* La diagonal inferior, en verde */}
+      <path
+        fill={VERDE}
+        d="M141.89,158.78L178.11,158.78L261.48,253.87L216.66,253.87L141.89,168.42Z"
+      />
 
       {/* Los dos puntos — los mismos de .ANKAI. */}
-      <rect x="241.93" y="141.5" width="37" height="37" fill={VERDE} />
-      <rect x="41.07" y="141.5" width="37" height="37" fill={VERDE} />
+      <rect x="238.1" y="139.57" width="37" height="37" fill={VERDE} />
+      <rect x="44.72" y="139.57" width="37" height="37" fill={VERDE} />
     </svg>
   );
 }
