@@ -191,6 +191,40 @@ export default function VuelvePage() {
         </SectionContainer>
       </section>
 
+      {/* ── Restaurantes que ya usan VUELVE ──
+          Cada local se nombra solo con su autorización escrita (sección 9 del
+          contrato). Meta revisa el nombre para mostrar del WhatsApp de cada
+          local contra este sitio: la relación marca ↔ razón social ↔ ANKAI
+          tiene que quedar escrita aquí. */}
+      <section className="border-t border-vuelve-linea py-12 md:py-14">
+        <SectionContainer>
+          <p className="text-xs font-semibold uppercase tracking-widest text-vuelve-gris-claro">
+            Ya funciona en
+          </p>
+          <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+            <li className="rounded-xl border border-vuelve-linea bg-[#F8F9F8] p-6">
+              <p className="text-lg font-extrabold text-vuelve-tinta">Papas Belgas</p>
+              <p className="mt-1 text-sm text-vuelve-gris">
+                San Felipe ·{" "}
+                <a
+                  href="https://www.instagram.com/papasbelgas_chile/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-vuelve-tinta underline underline-offset-2"
+                >
+                  @papasbelgas_chile
+                </a>
+              </p>
+              <p className="mt-3 text-xs leading-relaxed text-vuelve-gris-claro">
+                Comercial Juan Felipe Montenegro Arroyo EIRL. Su programa de
+                puntos y su WhatsApp para clientes funcionan con VUELVE, operado
+                por ANKAI LABS SpA.
+              </p>
+            </li>
+          </ul>
+        </SectionContainer>
+      </section>
+
       {/* ── Recorrido del cliente ── */}
       <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
