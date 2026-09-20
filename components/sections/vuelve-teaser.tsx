@@ -23,9 +23,9 @@ export function VuelveTeaser() {
             <span className="text-verde-bright">
               wallet y WhatsApp, sin apps
             </span>{" "}
-            — y que hoy está en producción con restaurantes reales. Es donde
-            está puesto nuestro trabajo, y la prueba de que construimos lo que
-            proponemos.
+            — y que hoy está atendiendo clientes reales en un restaurante de
+            San Felipe. Es donde está puesto nuestro trabajo, y la prueba de
+            que construimos lo que proponemos.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-4">
             <span className="rounded-full border border-verde/30 bg-verde/10 px-4 py-1.5 text-sm font-semibold text-verde-bright">

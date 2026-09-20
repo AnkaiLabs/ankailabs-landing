@@ -6,7 +6,7 @@ import { VUELVE_WHATSAPP_URL } from "@/lib/content/vuelve";
 
 const PAGE_TITLE = "VUELVE";
 const PAGE_DESCRIPTION =
-  "VUELVE es el sistema de fidelización wallet-native y WhatsApp-first de ANKAI LABS, ya en producción para restaurantes: sin apps, sin tocar la caja, funcionando en 15 minutos.";
+  "VUELVE es el sistema de fidelización wallet-native y WhatsApp-first de ANKAI LABS, ya en producción para restaurantes: sin apps, sin tocar la caja, funcionando en 20 minutos.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -84,17 +84,64 @@ const DASHBOARD_TRACKS = [
 
 const PLANS = [
   { name: "Inicio", price: "$29.000" },
-  { name: "Crecimiento", price: "$59.000" },
+  { name: "Crecimiento", price: "$49.000" },
   { name: "Pro", price: "$99.000" },
 ] as const;
 
 const FEATURE_ROWS = [
-  { label: "Mensajes de WhatsApp al mes", values: ["~300", "~1.500", "Ilimitados"] },
-  { label: "Recompensas activas", values: ["1", "Ilimitadas", "Ilimitadas"] },
-  { label: "Campañas segmentadas", values: ["—", "2 al mes", "Ilimitadas"] },
-  { label: "Staff con PIN", values: ["1 (el dueño)", "3", "Ilimitado"] },
-  { label: "Analytics", values: ["—", "Básico", "Con IA"] },
-  { label: "Multi-local", values: ["—", "—", "Sí"] },
+  { label: "Recompensas activas a la vez", values: ["1", "Ilimitadas", "Ilimitadas"] },
+  { label: "Accesos de staff con PIN (dueño incluido)", values: ["2", "3", "Ilimitados"] },
+  { label: "Mensajes de bienvenida por WhatsApp", values: ["Ilimitados", "Ilimitados", "Ilimitados"] },
+  {
+    label: "Mensajes de campaña al mes (manuales + automáticos)",
+    values: ["No incluidos", "100", "220"],
+  },
+  {
+    label: "Campañas segmentadas y reactivación automática",
+    values: ["—", "Sí", "Sí"],
+  },
+  { label: "Promociones (doble puntos, cumpleaños)", values: ["—", "Sí", "Sí"] },
+  { label: "Pedidos por WhatsApp (delivery y retiro)", values: ["—", "Sí", "Sí"] },
+  { label: "Panel de retención (cuántos vuelven y cada cuánto)", values: ["—", "Sí", "Sí"] },
+  { label: "Resumen mensual del panel, escrito", values: ["—", "—", "Sí"] },
+  { label: "Sucursales incluidas", values: ["1", "1", "2"] },
+] as const;
+
+const EXTRAS = [
+  {
+    tag: "Promociones",
+    title: "Las prendes tú, cuando las necesitas",
+    desc: "Doble puntos para levantar un martes flojo: lo activas desde tu panel y todos tus clientes reciben el aviso al instante en la tarjeta del celular. Sin pedírselo a nadie ni esperar respuesta.",
+    limite:
+      "El aviso sale apenas se activa y no se puede deshacer. Se habilita restaurante por restaurante.",
+  },
+  {
+    tag: "Promociones",
+    title: "Su edad en descuento, el día de su cumpleaños",
+    desc: "El cliente que cumple 42 tiene 42% ese día. Recibe el WhatsApp en la mañana y tu equipo se lo aplica en el mostrador, una vez al año por persona.",
+    limite:
+      "Alcanza solo a los clientes que cargaron su fecha al inscribirse, y necesita un plan con campañas.",
+  },
+  {
+    tag: "Mensajes",
+    title: "Ahora ves lo que te responden tus clientes",
+    desc: "Cuando alguien contesta el WhatsApp de su tarjeta, el mensaje te llega al panel con su nombre y sus puntos. El botón abre tu WhatsApp con la respuesta ya redactada y el mensaje original citado.",
+    limite:
+      "No se responde desde el panel, a propósito: contestas desde tu propio número, como siempre.",
+  },
+  {
+    tag: "Retención",
+    title: "Por fin sabes cuántos vuelven",
+    desc: "De los clientes que se inscribieron en agosto, cuántos volvieron en los 30 días siguientes. Cada cuánto vuelve tu gente, cuánto deja por visita y qué días se mueve tu local. Todo sale de las ventas que tu equipo ya registra.",
+    limite:
+      "Con pocos clientes no muestra porcentajes y te dice por qué: sobre 5 personas, cada una mueve la cifra 20 puntos.",
+  },
+  {
+    tag: "Pedidos",
+    title: "Menú digital y pedidos por WhatsApp",
+    desc: "El mismo QR puede abrir tu carta. El cliente arma el pedido, elige retiro o delivery, y el pedido entra a tu panel con la zona de reparto y el repartidor asignado.",
+    limite: "Disponible desde el Plan Crecimiento. Se configura junto contigo.",
+  },
 ] as const;
 
 const OBJECTIONS = [
@@ -108,7 +155,7 @@ const OBJECTIONS = [
   },
   {
     q: "¿Cuánto tarda en funcionar?",
-    a: "15 minutos: subes tu logo, configuras los puntos, imprimes el QR y lo pones en la mesa.",
+    a: "20 minutos de configuración guiada: subimos tu logo, dejamos los puntos y la primera recompensa listos, e imprimimos el QR para la mesa.",
   },
 ];
 
@@ -169,7 +216,7 @@ export default function VuelvePage() {
             </span>
           </>
         }
-        description="VUELVE es el sistema de fidelización que vive en el celular del cliente — sin app, sin integración con tu caja, en 15 minutos está funcionando."
+        description="VUELVE es el sistema de fidelización que vive en el celular del cliente — sin app, sin integración con tu caja, en 20 minutos está funcionando."
         footnote="Clientes de primera vez que nunca regresan a un restaurante: 70%. Fuente: Restroworks."
       />
 
@@ -503,6 +550,45 @@ export default function VuelvePage() {
         </SectionContainer>
       </section>
 
+      {/* ── Lo que se sumó sobre el programa de puntos ──
+          Cada tarjeta corresponde a una función ya desplegada y anunciada a los
+          dueños (ver announcements.ts en el repo de VUELVE). Los límites reales
+          de cada una salen del campo "noPrometer" de ese mismo catálogo: si algo
+          se habilita restaurante por restaurante, acá se dice. */}
+      <section className="border-t border-vuelve-linea py-16 md:py-20">
+        <SectionContainer>
+          <p className="text-xs font-semibold uppercase tracking-widest text-vuelve-gris-claro">
+            Además de los puntos
+          </p>
+          <h2 className="mt-3 max-w-2xl text-2xl font-extrabold text-vuelve-tinta md:text-3xl">
+            El programa de fidelización es el piso. Esto es lo que el dueño
+            puede prender encima.
+          </h2>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {EXTRAS.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-vuelve-linea bg-[#F8F9F8] p-6"
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-vuelve-azul-texto">
+                  {item.tag}
+                </p>
+                <h3 className="mt-2 font-extrabold text-vuelve-tinta">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-vuelve-gris">
+                  {item.desc}
+                </p>
+                <p className="mt-3 text-xs leading-relaxed text-vuelve-gris-claro">
+                  {item.limite}
+                </p>
+              </div>
+            ))}
+          </div>
+        </SectionContainer>
+      </section>
+
       {/* ── Precios ── */}
       <section className="border-t border-vuelve-linea py-16 md:py-20">
         <SectionContainer>
@@ -562,6 +648,22 @@ export default function VuelvePage() {
             La inscripción, el Wallet, los puntos y el QR están completos
             desde el Plan Inicio — nunca se limita el núcleo del producto.
           </p>
+          <ul className="mt-3 space-y-1.5 text-xs leading-relaxed text-vuelve-gris-claro">
+            <li>
+              Los mensajes de bienvenida a clientes nuevos no tienen tope en
+              ningún plan: inscribir gente nunca se cobra ni se frena.
+            </li>
+            <li>
+              El cupo mensual de campañas es uno solo y suma los envíos que
+              haces tú y los automáticos (cumpleaños, cliente que dejó de venir,
+              reactivación).
+            </li>
+            <li>
+              Plan Pro incluye 2 sucursales. Cada sucursal adicional suma
+              $49.000 CLP/mes y 110 mensajes de campaña al cupo.
+            </li>
+            <li>Todos los precios incluyen IVA. Sin contrato de permanencia.</li>
+          </ul>
         </SectionContainer>
       </section>
 
@@ -583,6 +685,10 @@ export default function VuelvePage() {
               <li>Gráfica simple personalizada.</li>
               <li>Configuración guiada completa, en 20 minutos.</li>
               <li>Primer mes de Plan Inicio incluido.</li>
+              <li>
+                Cada sucursal adicional a la primera: $15.000 CLP de pago único
+                — sus propios 3 soportes, instalación y capacitación al equipo.
+              </li>
             </ul>
             <p className="mt-5 text-sm text-vuelve-gris">
               Desde el mes 2, precio normal del Plan Inicio: $29.000 CLP/mes.
@@ -608,7 +714,7 @@ export default function VuelvePage() {
             Cómo se implementa
           </p>
           <h2 className="mt-3 text-2xl font-extrabold text-vuelve-tinta md:text-3xl">
-            15 minutos para que esté funcionando. Sin tocar tu caja.
+            20 minutos para que esté funcionando. Sin tocar tu caja.
           </h2>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-3">

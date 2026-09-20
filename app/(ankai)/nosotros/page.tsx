@@ -97,9 +97,16 @@ export default function NosotrosPage() {
             ANKAI LABS SpA se constituyó en julio de 2026. Ya factura a
             clientes reales, pero no vamos a mostrarte un logo inventado ni un
             testimonio que no exista para parecer más grandes de lo que
-            somos. Si en algún momento tenemos casos reales que mostrar, van a
-            estar acá con nombre y apellido — mientras tanto, la honestidad es
-            el activo.
+            somos. El primer restaurante operando con VUELVE está publicado con
+            nombre en{" "}
+            <Link
+              href="/vuelve"
+              className="font-semibold text-verde-bright underline underline-offset-4"
+            >
+              la página del producto
+            </Link>
+            , y los que vengan van a estar ahí igual — mientras tanto, la
+            honestidad es el activo.
           </p>
         </SectionContainer>
       </section>

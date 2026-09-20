@@ -21,6 +21,9 @@ html, body {
      ANKAI a propósito (docs/vuelve-marca.md §1). Vive sobre fondo blanco. */
   --color-vuelve-rojo: #e20613;
   --color-vuelve-azul: #049be6;
+  /* El azul de marca tampoco alcanza contraste como texto chico sobre blanco;
+     esta es su variante tipográfica (docs/vuelve-marca.md, tabla de acentos). */
+  --color-vuelve-azul-texto: #026fa6;
   --color-vuelve-amarillo: #feec00;
   /* El amarillo de marca es ilegible como texto sobre blanco; esta es su
      variante para tipografía. */
